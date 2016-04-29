@@ -12,6 +12,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 var configDB = require('./config/database.js');
+var ejs = require('ejs');
+var engine = require('ejs-mate');
 
 // configuration ===============================================================
 mongoose.connect(configDB.url); // connect to our database
@@ -22,7 +24,7 @@ require('./config/passport')(passport); // pass passport for configuration
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({extended: true})); // get information from html forms
-
+app.engine('ejs', engine);
 app.set('view engine', 'ejs'); // set up ejs for templating
 
 // required for passport

@@ -4,6 +4,7 @@
   "dependencies" : {
     "express" : "latest",
     "ejs" : "latest",
+    "ejs-mate": "latest",
     "mongoose" : "latest",
     "passport" : "latest",
     "passport-local" : "latest",

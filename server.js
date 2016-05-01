@@ -1,6 +1,6 @@
-// set up ======================================================================
-// get all the tools we need
+
 var express  = require('express');
+var favicon = require('serve-favicon');
 var app      = express();
 var port     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
@@ -20,6 +20,11 @@ mongoose.connect(configDB.url); // connect to our database
 
 require('./config/passport')(passport); // pass passport for configuration
 
+
+
+//favicon setter
+//console.log(__dirname);
+app.use(favicon(__dirname + '/public/img/android-icon-192x192.png'));
 // set up our express application
 app.use(morgan('dev')); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)

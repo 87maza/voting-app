@@ -1,20 +1,20 @@
 {
   "name": "node-authentication",
   "main": "server.js",
-  "dependencies" : {
-    "express" : "latest",
-    "ejs" : "latest",
-    "ejs-mate": "latest",
-    "mongoose" : "latest",
-    "passport" : "latest",
-    "passport-local" : "latest",
-    "connect-flash" : "latest",
-    "bcrypt-nodejs" : "latest",
-
-    "morgan":"latest" ,
+  "dependencies": {
+    "bcrypt-nodejs": "latest",
     "body-parser": "latest",
+    "connect-flash": "latest",
     "cookie-parser": "latest",
+    "ejs": "latest",
+    "ejs-mate": "latest",
+    "express": "latest",
+    "express-session": "latest",
     "method-override": "latest",
-    "express-session": "latest"
+    "mongoose": "latest",
+    "morgan": "latest",
+    "passport": "latest",
+    "passport-local": "latest",
+    "serve-favicon": "^2.3.0"
   }
 }

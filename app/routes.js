@@ -1,10 +1,11 @@
+
 module.exports = function(app, passport) {
 
     // =====================================
     // HOME PAGE (with login links) ========
     // =====================================
     app.get('/', function(req, res) {
-        res.render('accounts/index.ejs'); // load the index.ejs file
+        res.render('accounts/index.ejs',{user : req.user });
     });
 
     // =====================================
@@ -14,7 +15,7 @@ module.exports = function(app, passport) {
     app.get('/login', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('accounts/login.ejs', { message: req.flash('loginMessage') });
+        res.render('accounts/login.ejs', {user : req.user, message: req.flash('loginMessage') });
     });
 
     // process the login form
@@ -32,7 +33,7 @@ module.exports = function(app, passport) {
     app.get('/signup', function(req, res) {
 
         // render the page and pass in any flash data if it exists
-        res.render('accounts/signup.ejs', { message: req.flash('signupMessage') });
+        res.render('accounts/signup.ejs', { user : req.user, message: req.flash('signupMessage') });
     });
 
     app.post('/signup', passport.authenticate('local-signup', {

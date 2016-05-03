@@ -23,14 +23,13 @@ require('./config/passport')(passport); // pass passport for configuration
 
 
 //favicon setter
-//console.log(__dirname);
 app.use(favicon(__dirname + '/public/img/android-icon-192x192.png'));
 // set up our express application
-app.use(morgan('dev')); // log every request to the console
+app.use(morgan('dev')); 
 app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.urlencoded({extended: true})); // get information from html forms
 app.engine('ejs', engine);
-app.set('view engine', 'ejs'); // set up ejs for templating
+app.set('view engine', 'ejs'); 
 
 // required for passport
 app.use(session({
@@ -43,7 +42,10 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('./routes/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+require('./routes/pollRoutes.js')(app, passport);
+
+
 
 // launch ======================================================================
 app.listen(port);
